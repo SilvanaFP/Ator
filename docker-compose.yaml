@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    volumes:
+#      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: 'ator'
+      POSTGRES_PASSWORD: 'ator'
+      POSTGRES_MULTIPLE_DATABASES: 'ator,test_ator'
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
